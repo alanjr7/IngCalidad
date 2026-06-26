@@ -1,0 +1,29 @@
+# ── Dependencias mínimas para arrancar la API en local (sin Docker) ──
+# Solo lo necesario para bootear FastAPI + DB + auth.
+# Las libs pesadas de ML (tensorflow/torch/transformers/opencv) NO se
+# importan al arrancar (son "futuras") y no tienen wheels para Python 3.14.
+# Versiones sin pin para tomar wheels compatibles con tu intérprete.
+
+fastapi
+uvicorn[standard]
+python-multipart
+
+sqlalchemy
+asyncpg
+
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==4.0.1        # passlib 1.7.4 no soporta bcrypt >= 4.1 (rompe el hashing)
+pydantic[email]
+pydantic-settings
+
+structlog
+python-dotenv
+
+# IA / Groq (SDK puro-Python, compatible con 3.14)
+groq
+
+# Opcionales (import lazy): descomentar si usás reportes/imagen
+# openpyxl
+# pillow
+# pytesseract

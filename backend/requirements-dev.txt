@@ -1,0 +1,8 @@
+# ── Dependencias para correr la suite de tests en local (sin Docker) ──
+# Instalar sobre el venv:  pip install -r requirements-dev.txt
+-r requirements-local.txt
+
+pytest
+pytest-asyncio
+httpx                 # cliente ASGI para tests de API
+aiosqlite             # backend async de SQLite para la DB de test en memoria

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "advance-fee",
+    "title": "Estafa de pago por adelantado",
+    "subtitle": "Te prometen dinero o un premio a cambio de un pago previo",
+    "description": "El estafador ofrece enviarte una suma de dinero, un premio, una herencia o un producto, pero primero exige que pagues un costo de envío, comisión, impuesto, garantía o 'liberación de fondos'. Una vez que pagás, desaparece. Nadie legítimo te pide pagar por adelantado para recibir dinero.",
+    "indicators": ["te enviare dinero", "te envio", "paga primero", "costo de envio", "pagar el envio", "comision por adelantado", "deposita para liberar", "liberacion de fondos", "si me envias primero", "adelanto", "me dara", "me daria", "si le paso", "si le doy", "si le envio", "te doy si me das", "si me pasas"],
+    "recommended_action": "No pagues nada por adelantado para 'recibir' dinero o un premio. Cortá el contacto y no compartas datos.",
+    "risk_level": "high"
+  },
+  {
+    "id": "bank-smishing",
+    "title": "Smishing bancario",
+    "subtitle": "Mensaje que se hace pasar por tu banco",
+    "description": "Un SMS o mensaje simula venir de tu banco diciendo que tu cuenta fue bloqueada, hubo un movimiento sospechoso o debés verificar tus datos. Incluye un enlace falso que imita la web del banco para robar tu usuario, contraseña, número de tarjeta o token.",
+    "indicators": ["cuenta bloqueada", "cuenta suspendida", "verifica tus datos", "movimiento sospechoso", "ingresa a", "actualiza tu informacion", "banco", "tarjeta bloqueada"],
+    "recommended_action": "No toques el enlace. Entrá al banco por su app o web oficial escribiéndola vos. Los bancos nunca piden clave por mensaje.",
+    "risk_level": "high"
+  },
+  {
+    "id": "prize-lottery",
+    "title": "Premio o lotería falsa",
+    "subtitle": "Ganaste algo que nunca jugaste",
+    "description": "Te avisan que ganaste un premio, sorteo, lotería o sorteo de una marca conocida. Para 'reclamarlo' te piden datos personales, un pago de impuestos/gestión o que ingreses a un enlace. Es un gancho para robar datos o dinero.",
+    "indicators": ["ganaste", "felicidades", "premio", "sorteo", "loteria", "reclama tu premio", "fuiste seleccionado", "ganador"],
+    "recommended_action": "Si no participaste, no ganaste. No pagues ni des datos para reclamar un premio.",
+    "risk_level": "high"
+  },
+  {
+    "id": "parcel-delivery",
+    "title": "Suplantación de paquetería",
+    "subtitle": "Falso aviso de envío o aduana",
+    "description": "Un mensaje finge ser de Correo, Andreani, DHL, FedEx o Amazon diciendo que tu paquete está retenido o que debés pagar una tasa de aduana/reenvío. El enlace lleva a una página falsa para robar tarjeta o datos.",
+    "indicators": ["tu paquete", "envio retenido", "aduana", "pago pendiente de envio", "tasa de aduana", "reprograma tu entrega", "paqueteria", "tu pedido"],
+    "recommended_action": "Verificá el envío solo en la web oficial de la empresa con tu número de seguimiento. No pagues por mensaje.",
+    "risk_level": "high"
+  },
+  {
+    "id": "tech-support",
+    "title": "Soporte técnico falso",
+    "subtitle": "Tu dispositivo está 'infectado'",
+    "description": "Se hacen pasar por soporte de Microsoft, Apple, Google o tu proveedor de internet, alertando de un virus o acceso no autorizado. Buscan que instales un programa de acceso remoto o pagues por una 'reparación', tomando control de tu equipo.",
+    "indicators": ["tu equipo esta infectado", "soporte tecnico", "acceso no autorizado", "instala", "acceso remoto", "anydesk", "teamviewer", "microsoft", "tu computadora tiene un virus"],
+    "recommended_action": "Las empresas no te llaman por virus. No instales programas ni des acceso remoto a desconocidos.",
+    "risk_level": "high"
+  },
+  {
+    "id": "fake-job",
+    "title": "Oferta de empleo falsa",
+    "subtitle": "Trabajo fácil y muy bien pago",
+    "description": "Ofrecen un empleo remoto, simple y muy bien pagado (dar 'me gusta', reseñas, tareas) por WhatsApp/Telegram. Luego piden un depósito para 'activar tareas' o tus datos bancarios. Es estafa o reclutamiento para lavado de dinero.",
+    "indicators": ["trabajo desde casa", "gana dinero facil", "empleo", "tareas simples", "ingresos diarios", "vacante", "reclutamiento", "deposita para activar"],
+    "recommended_action": "Desconfiá de sueldos altos por tareas triviales. Nunca deposites dinero para 'empezar a trabajar'.",
+    "risk_level": "medium"
+  },
+  {
+    "id": "crypto-investment",
+    "title": "Inversión con rendimientos garantizados",
+    "subtitle": "Multiplicá tu dinero sin riesgo",
+    "description": "Prometen ganancias fijas y garantizadas invirtiendo en cripto, forex o un 'broker' exclusivo. Muestran capturas de ganancias y testimonios. Te dejan retirar poco al inicio para generar confianza y luego se quedan con todo (esquema Ponzi).",
+    "indicators": ["inversion", "rendimiento garantizado", "duplica tu dinero", "multiplica tu dinero", "ganancias garantizadas", "cripto", "trading", "sin riesgo", "broker"],
+    "recommended_action": "No existe inversión sin riesgo con ganancias garantizadas. Verificá que la entidad esté regulada.",
+    "risk_level": "high"
+  },
+  {
+    "id": "otp-theft",
+    "title": "Robo de código de verificación (OTP)",
+    "subtitle": "Te piden el código que te llegó por SMS",
+    "description": "Con una excusa (confirmar una compra, recuperar una cuenta, un envío) te piden el código de verificación de 6 dígitos que te llegó por SMS o app. Ese código permite al estafador tomar tu cuenta de WhatsApp, banco o redes.",
+    "indicators": ["codigo de verificacion", "te enviare un codigo", "pasame el codigo", "codigo de seguridad", "otp", "6 digitos", "confirma con el codigo"],
+    "recommended_action": "Nunca compartas un código de verificación con nadie, aunque diga ser soporte o un conocido.",
+    "risk_level": "high"
+  },
+  {
+    "id": "family-impersonation",
+    "title": "Familiar en problemas / cambié de número",
+    "subtitle": "Un supuesto familiar pide dinero urgente",
+    "description": "Te escribe alguien diciendo ser un hijo, padre o familiar que 'cambió de número' y necesita dinero urgente por una emergencia. Apuran para que transfieras sin verificar. Suplantan identidad jugando con la urgencia y el afecto.",
+    "indicators": ["cambie de numero", "soy tu hijo", "soy tu mama", "necesito dinero urgente", "tuve un problema", "transferime", "es una emergencia", "no puedo llamar"],
+    "recommended_action": "Llamá al número que ya conocés de esa persona para verificar antes de transferir nada.",
+    "risk_level": "high"
+  },
+  {
+    "id": "sextortion",
+    "title": "Sextorsión / chantaje",
+    "subtitle": "Amenazan con difundir contenido íntimo",
+    "description": "Afirman tener videos o fotos íntimas tuyas (reales o falsos) y amenazan con difundirlos a tus contactos si no pagás, normalmente en cripto. Usan miedo y vergüenza para presionar un pago inmediato.",
+    "indicators": ["tengo tus fotos", "tengo un video tuyo", "voy a difundir", "paga en bitcoin", "chantaje", "te grabe", "si no pagas envio"],
+    "recommended_action": "No pagues ni respondas. Guardá pruebas y denunciá. Pagar no detiene la extorsión.",
+    "risk_level": "high"
+  }
+]

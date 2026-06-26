@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /tmp)",
+      "Bash(curl -sIL \"https://github.com/simolus3/sqlite3.dart/releases/download/sqlite3-2.4.5/sqlite3.wasm\" -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -sIL \"https://github.com/simolus3/drift/releases/download/drift-2.19.1/drift_worker.js\" -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -sIL \"https://github.com/simolus3/drift/releases/download/drift-2.19.0/drift_worker.js\" -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(py scripts/search.py \"security threat analysis mobile app trust fintech\" --design-system -p \"ShieldAI\")",
+      "Bash(.venv/Scripts/python.exe --version)",
+      "Bash(.venv/Scripts/python.exe -c \"import fastapi, sqlalchemy, structlog, aiosqlite, httpx, jose, passlib; print\\('core deps OK'\\)\")",
+      "Bash(.venv/Scripts/python.exe -m pip install --quiet \"groq>=0.11.0,<1.0.0\")",
+      "Bash(echo \"---EXIT:$?---\")",
+      "Bash(.venv/Scripts/python.exe -c \"import groq; print\\('groq', groq.__version__\\); from app.services.ai.providers.groq import GroqAIProvider; from app.services.ai import get_ai_provider; p=get_ai_provider\\(\\); print\\('provider OK:', type\\(p\\).__name__\\)\")",
+      "Bash(.venv/Scripts/python.exe -c \"from app.core.config import get_settings; s=get_settings\\(\\); print\\('key cargada:', s.groq_api_key[:8]+'...'+s.groq_api_key[-4:] if s.groq_api_key else 'VACIA'\\); print\\('chat:', s.groq_chat_model\\); print\\('vision:', s.groq_vision_model\\)\")",
+      "Bash(.venv/Scripts/python.exe -c ' *)",
+      "Bash(command -v flutter)",
+      "Bash(.venv/Scripts/python.exe -c \"from app.services.ai.scam_index import get_scam_index; m=get_scam_index\\(\\).search\\('hola un tipo me dice que me dara 500bs si le paso 100'\\); print\\([\\(x.entry.title, round\\(x.score,1\\)\\) for x in m]\\)\")",
+      "PowerShell(flutter analyze lib/shared/services/secure_store.dart)",
+      "Bash(py -0p)",
+      "Bash(py -m pytest --version)",
+      "Bash(./.venv/Scripts/python.exe -m pytest tests/integration/test_ai.py tests/unit/test_ai_provider.py -q)",
+      "Bash(./.venv/Scripts/python.exe -m pytest -q)",
+      "WebFetch(domain:pub.dev)",
+      "Bash(grep -nA4 \"name: record_web\" pubspec.lock)",
+      "Bash(grep -nA4 \"^  web:\" pubspec.lock)",
+      "Bash(grep -nA4 \"name: share_plus$\" pubspec.lock)",
+      "Bash(grep -nA4 \"name: record_platform_interface\" pubspec.lock)",
+      "PowerShell($procs = Get-Process -Name engram -ErrorAction SilentlyContinue; if \\($procs\\) { $procs | Select-Object Id, ProcessName, Path | Format-Table -AutoSize | Out-String | Write-Output; $procs | Stop-Process -Force; Start-Sleep -Milliseconds 500; Write-Output \"Procesos engram detenidos: $\\($procs.Count\\)\" } else { Write-Output \"No hay procesos engram en ejecucion\" })"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\USER\\.claude"
+    ]
+  }
+}

@@ -1,0 +1,97 @@
+name: scam_detection
+description: Aplicación Android para detección de estafas (smishing/vishing) mediante ML.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ── Estado / DI ─────────────────────────────────────────────
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.4
+
+  # ── Navegación ───────────────────────────────────────────────
+  go_router: ^13.2.0
+
+  # ── Red / API ────────────────────────────────────────────────
+  dio: ^5.4.3
+  # Detecta emulador vs dispositivo físico para elegir el host del backend.
+  device_info_plus: ^10.1.2
+
+  # ── Almacenamiento local ─────────────────────────────────────
+  drift: ^2.18.0
+  sqlite3_flutter_libs: ^0.5.24
+  path_provider: ^2.1.3
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.0.0
+
+  # ── ML / TensorFlow Lite ─────────────────────────────────────
+  tflite_flutter: ^0.10.4
+  google_mlkit_text_recognition: ^0.13.0
+  google_mlkit_barcode_scanning: ^0.12.1
+
+  # ── Imágenes y cámara ────────────────────────────────────────
+  image_picker: ^1.1.2
+  camera: ^0.10.5+9
+  image: ^4.1.7
+
+  # ── Compartir / Clipboard ────────────────────────────────────
+  receive_sharing_intent: ^1.8.0
+  # v12: usa package:web ^1.0 (igual que record_web ≥1.2), lo que destraba la
+  # compilación web de la grabación de audio. Sin uso en código aún (solo previsto).
+  share_plus: ^12.0.2
+
+  # ── UI ───────────────────────────────────────────────────────
+  cupertino_icons: ^1.0.6
+  flutter_svg: ^2.0.10+1
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+  lottie: ^3.1.2
+  fl_chart: ^0.68.0
+
+  # ── Reportes PDF / Excel ─────────────────────────────────────
+  pdf: ^3.10.8
+  excel: ^4.0.3
+  path: ^1.9.0
+
+  # ── Notificaciones ───────────────────────────────────────────
+  flutter_local_notifications: ^17.2.2
+
+  # ── URL / Links ──────────────────────────────────────────────
+  url_launcher: ^6.3.0
+
+  # ── Internacionalización ─────────────────────────────────────
+  intl: ^0.19.0
+  record: ^6.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.11
+  drift_dev: ^2.18.0
+  mockito: ^5.4.4
+
+# record 6.0.0 deja resuelto record_web 1.1.9, cuya firma de hasPermission quedó
+# desfasada de record_platform_interface 1.6.0 y rompe la compilación web. Forzamos
+# el impl web 1.3.0 (ya alineado con la 1.6.0 y con package:web ^1.0).
+dependency_overrides:
+  record_web: ^1.3.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/models/
+
+  # fonts: Agregar Inter descargando desde fonts.google.com y colocando en assets/fonts/
+  #   - family: Inter
+  #     fonts:
+  #       - asset: assets/fonts/Inter-Regular.ttf
+  #       - asset: assets/fonts/Inter-Medium.ttf
+  #         weight: 500
