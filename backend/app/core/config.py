@@ -1,3 +1,5 @@
+import re
+from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from functools import lru_cache
 
@@ -17,14 +19,30 @@ class Settings(BaseSettings):
     debug: bool = False
 
     # Base de Datos
+    # En Render/producción se pasa una sola variable DATABASE_URL (la
+    # "Internal Database URL" del Postgres). Si no está, se arma desde
+    # las piezas POSTGRES_* (útil en local / docker-compose).
+    database_url_raw: str = Field(default='', validation_alias='DATABASE_URL')
     postgres_host: str = 'localhost'
     postgres_port: int = 5432
     postgres_db: str = 'scam_detection_db'
     postgres_user: str = 'scam_user'
     postgres_password: str = 'change_me'
 
+    @staticmethod
+    def _to_asyncpg(url: str) -> str:
+        # Render entrega 'postgresql://' (o 'postgres://'); SQLAlchemy async
+        # necesita el driver explícito 'postgresql+asyncpg://'.
+        url = re.sub(r'^postgres(ql)?://', 'postgresql+asyncpg://', url, count=1)
+        # asyncpg no acepta el query param 'sslmode' (es de psycopg2); la
+        # conexión interna de Render no requiere SSL, así que lo quitamos.
+        url = re.sub(r'[?&]sslmode=\w+', '', url)
+        return url
+
     @property
     def database_url(self) -> str:
+        if self.database_url_raw:
+            return self._to_asyncpg(self.database_url_raw)
         return (
             f'postgresql+asyncpg://{self.postgres_user}:{self.postgres_password}'
             f'@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}'
@@ -32,6 +50,11 @@ class Settings(BaseSettings):
 
     @property
     def database_url_sync(self) -> str:
+        if self.database_url_raw:
+            return re.sub(
+                r'^postgres(ql)?(\+\w+)?://', 'postgresql://',
+                self.database_url_raw, count=1,
+            )
         return (
             f'postgresql://{self.postgres_user}:{self.postgres_password}'
             f'@{self.postgres_host}:{self.postgres_port}/{self.postgres_db}'
