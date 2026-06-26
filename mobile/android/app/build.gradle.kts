@@ -38,6 +38,16 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+
+            // R8/minify: usa las reglas por defecto de Android + las nuestras
+            // (proguard-rules.pro) para silenciar las clases opcionales ausentes
+            // de ML Kit y TFLite que de otro modo abortan el build.
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 }

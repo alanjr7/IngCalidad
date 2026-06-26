@@ -8,6 +8,11 @@ abstract class AppConstants {
   static const int apiPort = 8000;
   static const String apiPrefix = '/api/v1';
 
+  // Backend desplegado en Render (producción). Es el destino por defecto
+  // cuando la app corre en un DISPOSITIVO FÍSICO. Incluye ya el prefijo
+  // /api/v1, así que es una URL base completa (no se le agrega host:puerto).
+  static const String prodApiBaseUrl = 'https://ingcalidad.onrender.com/api/v1';
+
   // IP LAN del PC de desarrollo. Se usa SOLO cuando la app corre en un
   // dispositivo FÍSICO (Android/iOS): el teléfono debe estar en la MISMA red
   // Wi-Fi y esta IP tiene que coincidir con la del PC (verificá con `ipconfig`).
@@ -30,7 +35,10 @@ abstract class AppConstants {
     return 'http://$host:$apiPort$apiPrefix';
   }
 
-  static const Duration apiTimeout = Duration(seconds: 30);
+  // 60s para absorber el "cold start" del plan free de Render: el servicio
+  // se duerme tras inactividad y puede tardar ~50s en despertar. Con un
+  // timeout menor, la PRIMERA request tras inactividad fallaría por timeout.
+  static const Duration apiTimeout = Duration(seconds: 60);
 
   // Tiempos de respuesta objetivo (criterios de aceptación)
   static const Duration textAnalysisTimeout = Duration(seconds: 3);

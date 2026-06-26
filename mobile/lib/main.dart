@@ -7,8 +7,8 @@ import 'core/theme/app_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Resuelve a qué host apunta el backend según cómo se ejecuta la app
-  // (web/escritorio→localhost, emulador→10.0.2.2, dispositivo físico→IP LAN).
+  // Resuelve a qué backend apunta la app según cómo se ejecuta
+  // (web/escritorio→localhost, emulador→10.0.2.2, dispositivo físico→Render).
   await NetworkConfig.init();
   await initializeDateFormatting('es');
   runApp(const ProviderScope(child: ScamShieldApp()));
