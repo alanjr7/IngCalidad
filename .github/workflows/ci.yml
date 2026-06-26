@@ -63,6 +63,14 @@ jobs:
           echo "### Cobertura backend" >> "$GITHUB_STEP_SUMMARY"
           coverage report >> "$GITHUB_STEP_SUMMARY" || true
 
+      - name: Calidad del detector de estafas (F1 / matriz de confusión)
+        if: always()
+        run: |
+          echo '### Calidad del modelo (detector de estafas)' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          python -m tests.quality.detector_eval >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
       - name: Subir reportes (evidencia QA)
         if: always()
         uses: actions/upload-artifact@v4

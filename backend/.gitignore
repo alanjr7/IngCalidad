@@ -12,6 +12,7 @@ htmlcov/
 pytest-report.xml
 .pytest_cache/
 test.db
+tests/quality/detector_metrics.json
 
 # ── Entorno / Secretos ────────────────────────────────────────
 .env
