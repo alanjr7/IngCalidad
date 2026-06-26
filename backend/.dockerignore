@@ -1,0 +1,33 @@
+# Mantener el contexto de build mínimo = build más rápido + imagen más chica
+
+# Entornos virtuales y cachés
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Datos locales / de test (no van a la imagen; en Render se usa Postgres)
+*.db
+.env
+.env.*
+
+# Tests, carga y dependencias de desarrollo
+tests/
+locustfile.py
+requirements-dev.txt
+requirements-local.txt
+
+# Git y metadatos
+.git/
+.gitignore
+.dockerignore
+*.md
+ruff.toml
+pytest.ini
+.coveragerc

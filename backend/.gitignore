@@ -1,0 +1,17 @@
+# ── Entorno virtual / Python ──────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# ── Tests / Cobertura (se generan en CI; no se versionan) ─────
+.coverage
+coverage.xml
+htmlcov/
+pytest-report.xml
+.pytest_cache/
+test.db
+
+# ── Entorno / Secretos ────────────────────────────────────────
+.env

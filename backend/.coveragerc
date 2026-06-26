@@ -1,0 +1,24 @@
+# Configuración de cobertura (coverage.py) — usada por pytest-cov.
+# Define qué se mide y qué se excluye del cálculo de cobertura.
+[run]
+source = app
+branch = True
+omit =
+    app/__init__.py
+    */__init__.py
+    app/db/migrations/*
+    tests/*
+
+[report]
+# Líneas que no cuentan como "sin cubrir".
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    if TYPE_CHECKING:
+    \.\.\.
+show_missing = True
+precision = 1
+
+[html]
+directory = htmlcov

@@ -1,0 +1,36 @@
+# ── Runtime mínimo para producción (Render) ──────────────────
+# Solo lo que el código importa de verdad. Se EXCLUYEN libs ML
+# pesadas (tensorflow / torch / transformers / opencv / sklearn /
+# numpy) que NO se importan en ningún módulo de app/ (son "futuras")
+# y disparan el tiempo de build a >15 min. Quitarlas = build de ~2 min.
+
+# ── Framework ────────────────────────────────────────────────
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+python-multipart==0.0.9
+
+# ── Base de datos (async) ────────────────────────────────────
+sqlalchemy==2.0.30
+asyncpg==0.29.0
+
+# ── Autenticación / Seguridad ────────────────────────────────
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1          # passlib 1.7.4 rompe con bcrypt >= 4.1
+pydantic[email]==2.7.1
+pydantic-settings==2.2.1
+
+# ── IA / Groq (SDK puro-Python, trae httpx transitivo) ───────
+groq>=0.11.0,<1.0.0
+
+# ── Utilidades ───────────────────────────────────────────────
+python-dotenv==1.0.1
+structlog==24.1.0
+
+# ── Reportes (import lazy en report_generator) ───────────────
+reportlab==4.2.0
+openpyxl==3.1.2
+
+# ── OCR (import lazy; requiere tesseract del sistema) ─────────
+pillow==10.3.0
+pytesseract==0.3.10

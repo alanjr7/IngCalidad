@@ -1,0 +1,17 @@
+# Configuración de ruff — análisis estático de Python (linter + formato).
+# Reemplaza a flake8/isort/pyflakes en una sola herramienta rápida.
+line-length = 120
+target-version = "py311"
+
+[lint]
+# E/W: estilo (pycodestyle) · F: errores reales (pyflakes) ·
+# I: orden de imports · B: bugbear (errores sutiles) · UP: modernización.
+select = ["E", "W", "F", "I", "B", "UP"]
+ignore = [
+    "E501",  # longitud de línea (informativa; el formateo la maneja)
+    "B008",  # llamadas en defaults — patrón normal en FastAPI (Depends())
+]
+
+[lint.per-file-ignores]
+# Los tests pueden tener imports/fixtures sin "usar" explícitamente.
+"tests/*" = ["F401", "F811"]

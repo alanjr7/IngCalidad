@@ -4,5 +4,11 @@
 
 pytest
 pytest-asyncio
+pytest-cov            # cobertura de pruebas (genera reportes xml/html para CI)
 httpx                 # cliente ASGI para tests de API
 aiosqlite             # backend async de SQLite para la DB de test en memoria
+ruff                  # análisis estático / linter (opcional en local, usado en CI)
+
+# ── Reportes (necesarios para probar report_generator y /export) ──
+reportlab             # generación de PDF
+openpyxl              # generación de Excel
